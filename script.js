@@ -8,15 +8,16 @@ button.addEventListener('click', function (e) {
 
 createPixelMatrix(16);
 
-function createPixelMatrix(pixels, color) {
+function createPixelMatrix(pixels) {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
-    console.log('removed')
   }
+
+  // container.style.gridTemplateColumns = `repeat(${pixels}, 1fr)`;
+  // container.style.gridTemplateRows = `repeat(${pixels}, 1fr)`;
+
   for (let i = 0; i < pixels * pixels; i++) {
     let newElement = document.createElement('div');
-    newElement.textContent = i;
-    newElement.style.backgroundColor = color;
     container.appendChild(newElement);
   }
 }
