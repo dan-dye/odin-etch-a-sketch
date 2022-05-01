@@ -1,10 +1,18 @@
 const container = document.querySelector('.container');
 const button = document.querySelector('button');
+let mouseClickToggle = false;
 
+window.addEventListener('mousedown', function (e) {
+  mouseClickToggle = true;
+  console.log(mouseClickToggle);
+})
+window.addEventListener('mouseup', function (e) {
+  mouseClickToggle = false;
+  console.log(mouseClickToggle);
+})
 
 button.addEventListener('click', function (e) {
-  let width = parseInt(prompt("Enter new pixel width (max: 100): "));
-  console.log(width, typeof(width));
+  let width = prompt("Enter new pixel width (max: 100): ");
   if(width <= 100 && width > 0) {
     createPixelMatrix(width);
   }
@@ -27,7 +35,9 @@ function createPixelMatrix(pixels) {
     let newElement = document.createElement('div');
     container.appendChild(newElement);
     newElement.addEventListener('mouseover', function (e) {
-      newElement.classList.add('hover');
+      if (mouseClickToggle === true) {
+        newElement.classList.add('hover');
+      } 
     })
   }
 }
