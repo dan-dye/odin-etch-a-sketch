@@ -3,8 +3,14 @@ const button = document.querySelector('button');
 
 
 button.addEventListener('click', function (e) {
-  let width = prompt("Enter new pixel width: ");
-  createPixelMatrix(width);
+  let width = parseInt(prompt("Enter new pixel width (max: 100): "));
+  console.log(width, typeof(width));
+  if(width <= 100 && width > 0) {
+    createPixelMatrix(width);
+  }
+  else {
+    alert("Invalid entry. Please use a number from 1 to 100.")
+  }
 })
 
 createPixelMatrix(16);
