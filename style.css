@@ -5,13 +5,14 @@ body {
 }
 .container {
   display: grid;
-  /* https://www.google.com/search?q=how+to+make+css+grid+squres&oq=how+to+make+css+grid+squres&aqs=chrome..69i57j33i10i160l3.7897j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_MbdtYsGXK-mpggfH9qigDA17 */
-  grid-template-columns: (auto-fill, minmax(50px, 50px));
-  grid-template-rows: (auto-fill, minmax(50px, 50px));
   width: 100%;
   height: 100vh;
 }
 
-.container > div:hover {
+.container > div {
+  aspect-ratio: 1 / 1;
+}
+
+.hover {
   background-color: dimgray;
 }
